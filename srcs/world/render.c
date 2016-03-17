@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   world.h                                            :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 10:01:57 by acazuc            #+#    #+#             */
-/*   Updated: 2016/03/17 12:36:34 by acazuc           ###   ########.fr       */
+/*   Created: 2016/03/17 12:35:55 by acazuc            #+#    #+#             */
+/*   Updated: 2016/03/17 12:37:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WORLD_H
-# define WORLD_H
+#include "cubecraft.h"
 
-# include "chunk.h"
-
-typedef struct	s_world
+void	world_render(t_world *world)
 {
-	t_chunk		**chunks;
-	size_t		chunks_nb;
-}				t_world;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < world->chunks_nb)
+	{
+		chunk_render(world->chunks[i]);
+		i++;
+	}
+}

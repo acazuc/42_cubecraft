@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/03/17 11:41:33 by acazuc           ###   ########.fr        #
+#    Updated: 2016/03/17 14:00:16 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,14 @@ SRCS_NAME = main.c \
 			window/create.c \
 			world/create.c \
 			world/add_chunk.c \
+			world/render.c \
+			world/remove_chunk.c \
+			block/create.c \
+			block/draw.c \
+			block/visible_face.c \
+			chunk/create.c \
+			chunk/draw.c \
+			chunk/render.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

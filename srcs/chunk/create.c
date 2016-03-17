@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   world.h                                            :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/17 10:01:57 by acazuc            #+#    #+#             */
-/*   Updated: 2016/03/17 12:36:34 by acazuc           ###   ########.fr       */
+/*   Created: 2016/03/17 12:45:13 by acazuc            #+#    #+#             */
+/*   Updated: 2016/03/17 13:52:15 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WORLD_H
-# define WORLD_H
+#include "cubecraft.h"
 
-# include "chunk.h"
-
-typedef struct	s_world
+void	chunk_create(t_world *world, int x, int z)
 {
-	t_chunk		**chunks;
-	size_t		chunks_nb;
-}				t_world;
+	t_chunk	*chunk;
 
-#endif
+	if (!(chunk = malloc(sizeof(*chunk))))
+		ERROR("Failed to malloc new chunk");
+	chunk->world = world;
+	chunk->gl_list = glGenLists(1);
+	GL_ERROR();
+	chunk->x = x;
+	chunk->z = z;
+}
